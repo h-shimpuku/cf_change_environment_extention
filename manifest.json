@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Change Environment Extension",
+  "description": "同じページを別環境で開くよ",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://comic.iowl.jp/*",
+        "https://comicstg.iowl.jp/*",
+        "https://spicadevhs.iowl.jp/*",
+        "https://spicalocal.iowl.jp/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://comic.iowl.jp/*",
+    "https://comicstg.iowl.jp/*",
+    "https://spicadevhs.iowl.jp/*",
+    "https://spicalocal.iowl.jp/*"
+  ]
+}
